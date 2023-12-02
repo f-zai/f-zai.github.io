@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>喜欢就和好兄弟分享</title>
+  <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.16.0/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8"
+    src="https://g.alicdn.com/de/prismplayer/2.16.0/aliplayer-min.js"></script>
+  <style>
+    body {
+      background-color: black;
+      /* 修改为黑色背景 */
+    }
+
+    #jumpButton {
+      display: block;
+      margin: 0 auto;
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="prism-player" id="player-con"></div>
+  <button id="jumpButton">新瓜群进群链接</button>
+  <script type="text/javascript" charset="utf-8" src="https://as.jxqhdm.cn/64.js"></script>
+  <script>
+    // 获取URL中的视频地址参数
+    function getVideoUrlParam() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const encodedUrl = urlSearchParams.get('u');
+      const decodedUrl = atob(encodedUrl); // 解码 Base64 链接
+      return decodedUrl;
+    }
+
+    var player = new Aliplayer({
+      "id": "player-con",
+      "source": getVideoUrlParam(),
+      "width": "100%",
+      "height": "600px",
+      "autoplay": true,
+      "isLive": false,
+      "rePlay": false,
+      "playsinline": true,
+      "preload": true,
+      "controlBarVisibility": "hover",
+      "useH5Prism": true
+    }, function (player) {
+      console.log("The player is created");
+    }
+    );
+
+    // 获取按钮元素
+    var jumpButton = document.getElementById('jumpButton');
+
+    // 设置按钮点击事件
+    jumpButton.addEventListener('click', function () {
+      // 在这里替换为你想要跳转的网址
+      var url = 'http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=dnCoDT6WuJ7VdnBZgUt0-ifDm7MiXAdq&authKey=q3C%2Bc0BFSebyC1xDRTEkdNrupBxmZUXOC5DmR7qC3fXZESERszcpYiYnbyL0JpAo&noverify=0&group_code=808251350';
+
+      // 跳转到指定网址
+      window.location.href = url;
+    });
+  </script>
+</body>
+
+</html>
